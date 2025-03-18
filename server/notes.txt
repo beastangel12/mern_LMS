@@ -1,0 +1,105 @@
+npm run dev executes the "dev" script from package.json.
+It is mainly used to start the server in development mode (e.g., with nodemon).
+Without npm run, Node.js won’t recognize "dev" since it's a custom script.
+
+
+
+package works
+
+1. bcryptjs
+🔹 Purpose: Hashing and comparing passwords securely.
+🔹 Use Case:
+
+Encrypt user passwords before storing them in the database.
+Compare hashed passwords during login.
+🔹 Example
+const bcrypt = require('bcryptjs');
+const hashedPassword = bcrypt.hashSync("password123", 10);
+console.log(hashedPassword);
+2. cloudinary
+🔹 Purpose: Upload and manage images/videos using Cloudinary (a cloud-based media management service).
+🔹 Use Case:
+
+Store images uploaded by users.
+Optimize images for performance.
+🔹 Example:
+
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({ cloud_name: "your_cloud_name", api_key: "your_api_key", api_secret: "your_api_secret" });
+3. cors
+🔹 Purpose: Enables Cross-Origin Resource Sharing (CORS) for your backend.
+🔹 Use Case:
+
+Allows frontend apps (e.g., React, Vue) to access your backend API.
+🔹 Example:
+
+const cors = require('cors');
+app.use(cors());
+4. express
+🔹 Purpose: A fast and minimal web framework for Node.js.
+🔹 Use Case:
+
+Create API routes and handle HTTP requests.
+🔹 Example
+const express = require('express');
+const app = express();
+app.get("/", (req, res) => res.send("Hello World!"));
+app.listen(3000, () => console.log("Server running on port 3000"));
+5. mongoose
+🔹 Purpose: ODM (Object Data Modeling) library for MongoDB.
+🔹 Use Case:
+
+Define schemas and interact with MongoDB in a structured way.
+🔹 Example:
+
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/mydb", { useNewUrlParser: true, useUnifiedTopology: true });
+6. dotenv
+🔹 Purpose: Loads environment variables from a .env file.
+🔹 Use Case:
+
+Store secret keys (e.g., API keys, database credentials) securely.
+🔹 Example
+require('dotenv').config();
+console.log(process.env.SECRET_KEY);
+7. jsonwebtoken (JWT)
+🔹 Purpose: Generate and verify JSON Web Tokens (JWT) for authentication.
+🔹 Use Case:
+
+Secure API authentication (login, access control).
+🔹 Example
+
+const jwt = require('jsonwebtoken');
+const token = jwt.sign({ userId: 123 }, "secretKey", { expiresIn: "1h" });
+console.log(token);
+8. multer
+🔹 Purpose: Handle file uploads in Express applications.
+🔹 Use Case:
+
+Upload images, videos, or documents.
+🔹 Example
+const multer = require('multer');
+const upload = multer({ dest: "uploads/" });
+9. paypal-rest-sdk
+🔹 Purpose: Integrate PayPal payments in a Node.js app.
+🔹 Use Case:
+
+Process payments using PayPal’s API.
+🔹 Example
+const paypal = require('paypal-rest-sdk');
+paypal.configure({
+  mode: "sandbox",
+  client_id: "your_client_id",
+  client_secret: "your_client_secret"
+});
+Summary
+Package	Purpose
+bcryptjs	Hash and compare passwords securely
+cloudinary	Upload and manage images/videos on Cloudinary
+cors	Enable CORS for cross-origin requests
+express	Create a backend API
+mongoose	Interact with MongoDB using schemas
+dotenv	Load environment variables from .env file
+jsonwebtoken	Generate and verify JWTs for authentication
+multer	Handle file uploads in Express
+paypal-rest-sdk	Integrate PayPal payments
